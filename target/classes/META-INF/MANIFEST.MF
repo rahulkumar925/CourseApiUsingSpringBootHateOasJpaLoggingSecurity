@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: cgcourseapi
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Rahul Kumar
+Implementation-Vendor-Id: com.cg.springboot
+Build-Jdk: 1.8.0_91
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/courseapi
+Created-By: Maven Integration for Eclipse
+
