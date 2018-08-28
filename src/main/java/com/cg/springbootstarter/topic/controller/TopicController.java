@@ -1,4 +1,4 @@
-package com.cg.springbootstarter.topic;
+package com.cg.springbootstarter.topic.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.springbootstarter.topic.bean.Topic;
+import com.cg.springbootstarter.topic.seervice.TopicServiceInterface;
+
+
 @RestController
 public class TopicController {
 
 	@Autowired
-	private TopicService topicService;
+	private TopicServiceInterface topicService;
 	
 	@RequestMapping("/topics/{start}/{count}")
 	public Resources getTopicByPage(@PathVariable("start") int start, @PathVariable("count") int count) {
@@ -30,9 +34,9 @@ public class TopicController {
 			topics.add(tempTopics.get(i-1));
 		}
 		
-       Link nextLink = ControllerLinkBuilder.linkTo(methodOn(this.getClass()).getTopicByPage(start+count, count)).withRel("nextLink");
+       Link nextLink = ControllerLinkBuilder.linkTo(methodOn(this.getClass()).getTopicByPage(start+count>tempTopics.size()?start:start+count, count)).withRel("nextLink");
 
-       Link previousLink = ControllerLinkBuilder.linkTo(methodOn(this.getClass()).getTopicByPage(start-count>=0?start-count:1, count)).withRel("previousLink");
+       Link previousLink = ControllerLinkBuilder.linkTo(methodOn(this.getClass()).getTopicByPage(start-count>0?start-count:1, count)).withRel("previousLink");
 
        Resources resources = new Resources (topics, nextLink, previousLink);
 
@@ -46,11 +50,20 @@ public class TopicController {
 	
 	@RequestMapping("/topics/{id}")
 	public Resource getTopic(@PathVariable("id")  int id) {
-List<Topic> topics = topicService.getAllTopics();
+        
+		/*List<Topic> topics = topicService.getAllTopics();
 		
 		Link viewAll =linkTo(methodOn(this.getClass()).getTopicByPage(1, topics.size())).withRel("viewAll");
 		
 		Resource resource = new Resource(topicService.getTopic(id), viewAll);
+		
+		return resource;*/
+		
+		Topic topic = topicService.getTopic(id);
+		
+		Link viewAll = linkTo(methodOn(this.getClass()).getAllTopics()).withRel("viewAll");
+		
+		Resource resource = new Resource(topic,viewAll);
 		
 		return resource;
 	}

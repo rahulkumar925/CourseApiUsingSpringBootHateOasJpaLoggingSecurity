@@ -1,4 +1,4 @@
-package com.cg.springbootstarter.topic;
+package com.cg.springbootstarter.topic.bean;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

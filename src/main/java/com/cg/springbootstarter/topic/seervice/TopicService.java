@@ -1,4 +1,4 @@
-package com.cg.springbootstarter.topic;
+package com.cg.springbootstarter.topic.seervice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,8 +7,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cg.springbootstarter.topic.bean.Topic;
+import com.cg.springbootstarter.topic.repository.TopicRepository;
+
 @Service
-public class TopicService {
+public class TopicService implements TopicServiceInterface {
 
 @Autowired
 private TopicRepository topicRepository;
@@ -21,6 +24,14 @@ private TopicRepository topicRepository;
 			new Topic(5,"JSON Framework","JSON Framework Description"),new Topic(6,"JEE Framework","JEE Framework Description"),
 			new Topic(7,"Struts Framework","Struts Framework Description")));*/
 	
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#getAllTopics()
+	 */
+	
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#getAllTopics()
+	 */
+	@Override
 	public List<Topic> getAllTopics(){
 		//return topics;
 		
@@ -29,6 +40,14 @@ private TopicRepository topicRepository;
 		return topics;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#getTopic(int)
+	 */
+	
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#getTopic(int)
+	 */
+	@Override
 	public Topic getTopic(int id) {
 		/*for(Topic topic : topics) {
 			if(topic.getId().equals(id)) {
@@ -41,6 +60,14 @@ private TopicRepository topicRepository;
 		return topicRepository.findById(id).get();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#addTopic(com.cg.springbootstarter.topic.bean.Topic)
+	 */
+
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#addTopic(com.cg.springbootstarter.topic.bean.Topic)
+	 */
+	@Override
 	public void addTopic(Topic topic) {
 		
 		//topics.add(topic);
@@ -49,6 +76,14 @@ private TopicRepository topicRepository;
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#updateTopic(int, com.cg.springbootstarter.topic.bean.Topic)
+	 */
+	
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#updateTopic(int, com.cg.springbootstarter.topic.bean.Topic)
+	 */
+	@Override
 	public void updateTopic(int id, Topic topic) {
 		
 		/*for(int i=0; i<topics.size(); i++) {
@@ -62,6 +97,14 @@ private TopicRepository topicRepository;
 		topicRepository.save(topic);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#deleteTopic(int)
+	 */
+	
+	/* (non-Javadoc)
+	 * @see com.cg.springbootstarter.topic.seervice.TopicServiceInterface#deleteTopic(int)
+	 */
+	@Override
 	public void deleteTopic(int id) {
 		
 		//topics.removeIf(topic -> topic.getId()==id);
