@@ -1,24 +1,29 @@
 package com.cg.springbootstarter.topic.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.bson.types.ObjectId;
 
-@Entity
+//import javax.persistence.Entity;
+
+import org.springframework.data.annotation.Id;
+//import javax.persistence.Id;
+
+//@Entity
 public class Topic  {
 
 	@Id
 	private int id;
 	private String name;
 	private String description;
+	private static int count=100;
      
 	
 	public Topic() {
 	
 	}
 	
-	public Topic(int id, String name, String description) {
+	public Topic(String name, String description) {
 		
-		this.id = id;
+		this.id = ++count;
 		this.name = name;
 		this.description = description;
 	}
@@ -50,5 +55,12 @@ public class Topic  {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String toString() {
+		return "Topic [id=" + id + ", name=" + name + ", description=" + description + "]";
+	}
+	
+	
 	
 }

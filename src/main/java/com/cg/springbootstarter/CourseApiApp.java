@@ -36,13 +36,13 @@ public class CourseApiApp {
 		logger.fatal("This is fatal message");
 		
 		return (args) -> {
-			service.addTopic(new Topic(1,"Core Java","Java in second"));
-			service.addTopic(new Topic(2,"Let us C","C descriptions"));
-			service.addTopic(new Topic(3,"Spring Framework","Spring Framework Description"));
-			service.addTopic(new Topic(4,"XML Framework","XML Framework Description"));
-			service.addTopic(new Topic(5,"JSON Framework","JSON Framework Description"));
-			service.addTopic(new Topic(6,"JEE Framework","JEE Framework Description"));
-			service.addTopic(new Topic(7,"Struts Framework","Struts Framework Description"));
+			service.addTopic(new Topic("Core Java","Java in second"));
+			service.addTopic(new Topic("Let us C","C descriptions"));
+			service.addTopic(new Topic("Spring Framework","Spring Framework Description"));
+			service.addTopic(new Topic("XML Framework","XML Framework Description"));
+			service.addTopic(new Topic("JSON Framework","JSON Framework Description"));
+			service.addTopic(new Topic("JEE Framework","JEE Framework Description"));
+			service.addTopic(new Topic("Struts Framework","Struts Framework Description"));
 			System.out.println("Sample data populated to database");
 		};
 	}

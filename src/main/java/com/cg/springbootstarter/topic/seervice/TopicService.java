@@ -107,9 +107,9 @@ private TopicRepository topicRepository;
 	@Override
 	public void deleteTopic(int id) {
 		
-		//topics.removeIf(topic -> topic.getId()==id);
-		topicRepository.deleteById(id);
-		
+		//topics.removeIf(topic -> topic.getId()==id); //for manual collection
+		topicRepository.deleteById(id); //for curd jpa
+	
 	}
 	
 	
